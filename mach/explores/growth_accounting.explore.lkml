@@ -1,4 +1,4 @@
-include: "/looker-hub/mach/views/*.view.lkml"
+include: "/looker-hub/mach/views/growth_accounting.view.lkml"
 
 explore: growth_accounting {
   view_name: growth_accounting

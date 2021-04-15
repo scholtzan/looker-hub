@@ -1,4 +1,4 @@
-include: "/looker-hub/firefox_desktop/views/*.view.lkml"
+include: "/looker-hub/firefox_desktop/views/baseline.view.lkml"
 
 explore: baseline {
   view_name: baseline

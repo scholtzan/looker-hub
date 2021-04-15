@@ -1,4 +1,4 @@
-include: "/looker-hub/mach/views/*.view.lkml"
+include: "/looker-hub/mach/views/baseline.view.lkml"
 
 explore: baseline {
   view_name: baseline

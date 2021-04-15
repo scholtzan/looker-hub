@@ -1,4 +1,4 @@
-include: "/looker-hub/burnham/views/*.view.lkml"
+include: "/looker-hub/burnham/views/events.view.lkml"
 
 explore: events {
   view_name: events

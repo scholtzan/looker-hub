@@ -1,4 +1,4 @@
-include: "/looker-hub/fenix/views/*.view.lkml"
+include: "/looker-hub/fenix/views/sync.view.lkml"
 
 explore: sync {
   view_name: sync

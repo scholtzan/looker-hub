@@ -1,4 +1,4 @@
-include: "/looker-hub/mozphab/views/*.view.lkml"
+include: "/looker-hub/mozphab/views/usage.view.lkml"
 
 explore: usage {
   view_name: usage

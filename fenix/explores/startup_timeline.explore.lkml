@@ -1,4 +1,4 @@
-include: "/looker-hub/fenix/views/*.view.lkml"
+include: "/looker-hub/fenix/views/startup_timeline.view.lkml"
 
 explore: startup_timeline {
   view_name: startup_timeline

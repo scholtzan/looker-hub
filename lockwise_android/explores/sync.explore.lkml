@@ -1,4 +1,4 @@
-include: "/looker-hub/lockwise_android/views/*.view.lkml"
+include: "/looker-hub/lockwise_android/views/sync.view.lkml"
 
 explore: sync {
   view_name: sync

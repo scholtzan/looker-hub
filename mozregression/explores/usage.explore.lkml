@@ -1,4 +1,4 @@
-include: "/looker-hub/mozregression/views/*.view.lkml"
+include: "/looker-hub/mozregression/views/usage.view.lkml"
 
 explore: usage {
   view_name: usage
