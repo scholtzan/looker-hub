@@ -1,4 +1,4 @@
-includes: /looker-hub/fenix/views/*.view.lkml
+include: "/looker-hub/fenix/views/*.view.lkml"
 
 explore: history_sync {
   view_name: history_sync
