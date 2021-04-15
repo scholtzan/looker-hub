@@ -1,4 +1,4 @@
-view: baseline {
+view: logins_sync {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,18 +221,25 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
+  dimension: metrics__counter__logins_sync_outgoing_batches {
+    sql: ${TABLE}.metrics.counter.logins_sync_outgoing_batches ;;
     type: number
     group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+    group_item_label: "Logins Sync Outgoing Batches"
   }
 
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
+  dimension: metrics__datetime__logins_sync_finished_at {
+    sql: ${TABLE}.metrics.datetime.logins_sync_finished_at ;;
     type: string
     group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
+    group_item_label: "Logins Sync Finished At"
+  }
+
+  dimension: metrics__datetime__logins_sync_started_at {
+    sql: ${TABLE}.metrics.datetime.logins_sync_started_at ;;
+    type: string
+    group_label: "Metrics Datetime"
+    group_item_label: "Logins Sync Started At"
   }
 
   dimension: metrics__jwe {
@@ -260,8 +267,13 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
+  dimension: metrics__labeled_counter__logins_sync_incoming {
+    sql: ${TABLE}.metrics.labeled_counter.logins_sync_incoming ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__logins_sync_outgoing {
+    sql: ${TABLE}.metrics.labeled_counter.logins_sync_outgoing ;;
     hidden: yes
   }
 
@@ -270,25 +282,23 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
+  dimension: metrics__labeled_string__logins_sync_failure_reason {
+    sql: ${TABLE}.metrics.labeled_string.logins_sync_failure_reason ;;
+    hidden: yes
+  }
+
+  dimension: metrics__string__logins_sync_uid {
+    sql: ${TABLE}.metrics.string.logins_sync_uid ;;
     type: string
     group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+    group_item_label: "Logins Sync Uid"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__uuid__sync_sync_uuid {
+    sql: ${TABLE}.metrics.uuid.sync_sync_uuid ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Time Unit"
-  }
-
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
-    type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Value"
+    group_label: "Metrics Uuid"
+    group_item_label: "Sync Sync Uuid"
   }
 
   dimension: normalized_app_name {
@@ -437,17 +447,17 @@ view: baseline {
 
     allowed_value: {
       label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
+      value: "mozdata.org_mozilla_firefox.logins_sync"
     }
 
     allowed_value: {
       label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
+      value: "mozdata.org_mozilla_firefox_beta.logins_sync"
     }
 
     allowed_value: {
       label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
+      value: "mozdata.org_mozilla_fenix.logins_sync"
     }
   }
 

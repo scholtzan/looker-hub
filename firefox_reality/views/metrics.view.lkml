@@ -221,25 +221,18 @@ view: metrics {
     group_item_label: "Version"
   }
 
-  dimension: metrics__boolean__application_services_bookmark_highlights_visible {
-    sql: ${TABLE}.metrics.boolean.application_services_bookmark_highlights_visible ;;
+  dimension: metrics__boolean__firefox_account_bookmarks_sync_status {
+    sql: ${TABLE}.metrics.boolean.firefox_account_bookmarks_sync_status ;;
     type: yesno
     group_label: "Metrics Boolean"
-    group_item_label: "Application Services Bookmark Highlights Visible"
+    group_item_label: "Firefox Account Bookmarks Sync Status"
   }
 
-  dimension: metrics__boolean__application_services_pocket_stories_visible {
-    sql: ${TABLE}.metrics.boolean.application_services_pocket_stories_visible ;;
+  dimension: metrics__boolean__firefox_account_history_sync_status {
+    sql: ${TABLE}.metrics.boolean.firefox_account_history_sync_status ;;
     type: yesno
     group_label: "Metrics Boolean"
-    group_item_label: "Application Services Pocket Stories Visible"
-  }
-
-  dimension: metrics__boolean__application_services_recent_highlights_visible {
-    sql: ${TABLE}.metrics.boolean.application_services_recent_highlights_visible ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Application Services Recent Highlights Visible"
+    group_item_label: "Firefox Account History Sync Status"
   }
 
   dimension: metrics__boolean__glean_core_migration_successful {
@@ -256,109 +249,11 @@ view: metrics {
     group_item_label: "Glean Error Preinit Tasks Timeout"
   }
 
-  dimension: metrics__boolean__preferences_block_popups {
-    sql: ${TABLE}.metrics.boolean.preferences_block_popups ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Preferences Block Popups"
-  }
-
-  dimension: metrics__boolean__preferences_close_private_tabs {
-    sql: ${TABLE}.metrics.boolean.preferences_close_private_tabs ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Preferences Close Private Tabs"
-  }
-
-  dimension: metrics__boolean__preferences_save_logins {
-    sql: ${TABLE}.metrics.boolean.preferences_save_logins ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Preferences Save Logins"
-  }
-
-  dimension: metrics__boolean__preferences_show_clipboard_bar {
-    sql: ${TABLE}.metrics.boolean.preferences_show_clipboard_bar ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Preferences Show Clipboard Bar"
-  }
-
-  dimension: metrics__boolean__theme_automatic_mode {
-    sql: ${TABLE}.metrics.boolean.theme_automatic_mode ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Theme Automatic Mode"
-  }
-
-  dimension: metrics__boolean__theme_use_system_theme {
-    sql: ${TABLE}.metrics.boolean.theme_use_system_theme ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Theme Use System Theme"
-  }
-
-  dimension: metrics__boolean__tracking_protection_enabled {
-    sql: ${TABLE}.metrics.boolean.tracking_protection_enabled ;;
-    type: yesno
-    group_label: "Metrics Boolean"
-    group_item_label: "Tracking Protection Enabled"
-  }
-
-  dimension: metrics__counter__app_menu_library {
-    sql: ${TABLE}.metrics.counter.app_menu_library ;;
+  dimension: metrics__counter__firefox_account_tab_sent {
+    sql: ${TABLE}.metrics.counter.firefox_account_tab_sent ;;
     type: number
     group_label: "Metrics Counter"
-    group_item_label: "App Menu Library"
-  }
-
-  dimension: metrics__counter__app_menu_logins {
-    sql: ${TABLE}.metrics.counter.app_menu_logins ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "App Menu Logins"
-  }
-
-  dimension: metrics__counter__app_menu_sign_into_sync {
-    sql: ${TABLE}.metrics.counter.app_menu_sign_into_sync ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "App Menu Sign Into Sync"
-  }
-
-  dimension: metrics__counter__app_opened_as_default_browser {
-    sql: ${TABLE}.metrics.counter.app_opened_as_default_browser ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "App Opened As Default Browser"
-  }
-
-  dimension: metrics__counter__default_browser_card_dismiss_pressed {
-    sql: ${TABLE}.metrics.counter.default_browser_card_dismiss_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Default Browser Card Dismiss Pressed"
-  }
-
-  dimension: metrics__counter__default_browser_card_go_to_settings_pressed {
-    sql: ${TABLE}.metrics.counter.default_browser_card_go_to_settings_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Default Browser Card Go To Settings Pressed"
-  }
-
-  dimension: metrics__counter__default_browser_onboarding_dismiss_pressed {
-    sql: ${TABLE}.metrics.counter.default_browser_onboarding_dismiss_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Default Browser Onboarding Dismiss Pressed"
-  }
-
-  dimension: metrics__counter__default_browser_onboarding_go_to_settings_pressed {
-    sql: ${TABLE}.metrics.counter.default_browser_onboarding_go_to_settings_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Default Browser Onboarding Go To Settings Pressed"
+    group_item_label: "Firefox Account Tab Sent"
   }
 
   dimension: metrics__counter__glean_error_io {
@@ -410,167 +305,6 @@ view: metrics {
     group_item_label: "Glean Validation Foreground Count"
   }
 
-  dimension: metrics__counter__pocket_open_story {
-    sql: ${TABLE}.metrics.counter.pocket_open_story ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Pocket Open Story"
-  }
-
-  dimension: metrics__counter__qr_code_scanned {
-    sql: ${TABLE}.metrics.counter.qr_code_scanned ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Qr Code Scanned"
-  }
-
-  dimension: metrics__counter__reader_mode_close {
-    sql: ${TABLE}.metrics.counter.reader_mode_close ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Reader Mode Close"
-  }
-
-  dimension: metrics__counter__reader_mode_open {
-    sql: ${TABLE}.metrics.counter.reader_mode_open ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Reader Mode Open"
-  }
-
-  dimension: metrics__counter__reading_list_mark_read {
-    sql: ${TABLE}.metrics.counter.reading_list_mark_read ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Reading List Mark Read"
-  }
-
-  dimension: metrics__counter__reading_list_mark_unread {
-    sql: ${TABLE}.metrics.counter.reading_list_mark_unread ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Reading List Mark Unread"
-  }
-
-  dimension: metrics__counter__reading_list_open {
-    sql: ${TABLE}.metrics.counter.reading_list_open ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Reading List Open"
-  }
-
-  dimension: metrics__counter__search_start_search_pressed {
-    sql: ${TABLE}.metrics.counter.search_start_search_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Search Start Search Pressed"
-  }
-
-  dimension: metrics__counter__settings_menu_set_as_default_browser_pressed {
-    sql: ${TABLE}.metrics.counter.settings_menu_set_as_default_browser_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Settings Menu Set As Default Browser Pressed"
-  }
-
-  dimension: metrics__counter__sync_create_account_pressed {
-    sql: ${TABLE}.metrics.counter.sync_create_account_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Sync Create Account Pressed"
-  }
-
-  dimension: metrics__counter__sync_open_sync_home_shortcut {
-    sql: ${TABLE}.metrics.counter.sync_open_sync_home_shortcut ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Sync Open Sync Home Shortcut"
-  }
-
-  dimension: metrics__counter__sync_open_tab {
-    sql: ${TABLE}.metrics.counter.sync_open_tab ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Sync Open Tab"
-  }
-
-  dimension: metrics__counter__sync_sign_in_sync_pressed {
-    sql: ${TABLE}.metrics.counter.sync_sign_in_sync_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Sync Sign In Sync Pressed"
-  }
-
-  dimension: metrics__counter__tabs_cumulative_count {
-    sql: ${TABLE}.metrics.counter.tabs_cumulative_count ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Tabs Cumulative Count"
-  }
-
-  dimension: metrics__counter__tabs_new_tab_pressed {
-    sql: ${TABLE}.metrics.counter.tabs_new_tab_pressed ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Tabs New Tab Pressed"
-  }
-
-  dimension: metrics__counter__widget_l_tabs_open_url {
-    sql: ${TABLE}.metrics.counter.widget_l_tabs_open_url ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget L Tabs Open Url"
-  }
-
-  dimension: metrics__counter__widget_m_quick_action_close_private {
-    sql: ${TABLE}.metrics.counter.widget_m_quick_action_close_private ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget M Quick Action Close Private"
-  }
-
-  dimension: metrics__counter__widget_m_quick_action_copied_link {
-    sql: ${TABLE}.metrics.counter.widget_m_quick_action_copied_link ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget M Quick Action Copied Link"
-  }
-
-  dimension: metrics__counter__widget_m_quick_action_private_search {
-    sql: ${TABLE}.metrics.counter.widget_m_quick_action_private_search ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget M Quick Action Private Search"
-  }
-
-  dimension: metrics__counter__widget_m_quick_action_search {
-    sql: ${TABLE}.metrics.counter.widget_m_quick_action_search ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget M Quick Action Search"
-  }
-
-  dimension: metrics__counter__widget_m_tabs_open_url {
-    sql: ${TABLE}.metrics.counter.widget_m_tabs_open_url ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget M Tabs Open Url"
-  }
-
-  dimension: metrics__counter__widget_m_top_sites_widget {
-    sql: ${TABLE}.metrics.counter.widget_m_top_sites_widget ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget M Top Sites Widget"
-  }
-
-  dimension: metrics__counter__widget_s_quick_action_search {
-    sql: ${TABLE}.metrics.counter.widget_s_quick_action_search ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Widget S Quick Action Search"
-  }
-
   dimension: metrics__datetime__glean_validation_first_run_hour {
     sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
     type: string
@@ -583,23 +317,8 @@ view: metrics {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__bookmarks_add {
-    sql: ${TABLE}.metrics.labeled_counter.bookmarks_add ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__bookmarks_delete {
-    sql: ${TABLE}.metrics.labeled_counter.bookmarks_delete ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__bookmarks_open {
-    sql: ${TABLE}.metrics.labeled_counter.bookmarks_open ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__bookmarks_view_list {
-    sql: ${TABLE}.metrics.labeled_counter.bookmarks_view_list ;;
+  dimension: metrics__labeled_counter__firefox_account_received_tab {
+    sql: ${TABLE}.metrics.labeled_counter.firefox_account_received_tab ;;
     hidden: yes
   }
 
@@ -633,48 +352,13 @@ view: metrics {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__library_panel_pressed {
-    sql: ${TABLE}.metrics.labeled_counter.library_panel_pressed ;;
+  dimension: metrics__labeled_counter__searches_counts {
+    sql: ${TABLE}.metrics.labeled_counter.searches_counts ;;
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__reading_list_add {
-    sql: ${TABLE}.metrics.labeled_counter.reading_list_add ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__reading_list_delete {
-    sql: ${TABLE}.metrics.labeled_counter.reading_list_delete ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__search_counts {
-    sql: ${TABLE}.metrics.labeled_counter.search_counts ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__search_google_topsite_pressed {
-    sql: ${TABLE}.metrics.labeled_counter.search_google_topsite_pressed ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__search_in_content {
-    sql: ${TABLE}.metrics.labeled_counter.search_in_content ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__tabs_close {
-    sql: ${TABLE}.metrics.labeled_counter.tabs_close ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__tabs_close_all {
-    sql: ${TABLE}.metrics.labeled_counter.tabs_close_all ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__tabs_open {
-    sql: ${TABLE}.metrics.labeled_counter.tabs_open ;;
+  dimension: metrics__labeled_counter__url_query_type {
+    sql: ${TABLE}.metrics.labeled_counter.url_query_type ;;
     hidden: yes
   }
 
@@ -719,6 +403,13 @@ view: metrics {
     hidden: yes
   }
 
+  dimension: metrics__string__distribution_channel_name {
+    sql: ${TABLE}.metrics.string.distribution_channel_name ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Distribution Channel Name"
+  }
+
   dimension: metrics__string__ping_reason {
     sql: ${TABLE}.metrics.string.ping_reason ;;
     type: string
@@ -726,46 +417,160 @@ view: metrics {
     group_item_label: "Ping Reason"
   }
 
-  dimension: metrics__string__preferences_mail_client {
-    sql: ${TABLE}.metrics.string.preferences_mail_client ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Preferences Mail Client"
+  dimension: metrics__timing_distribution__immersive_duration__bucket_count {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.bucket_count ;;
+    type: number
+    group_label: "Metrics Timing Distribution Immersive Duration"
+    group_item_label: "Bucket Count"
   }
 
-  dimension: metrics__string__preferences_new_tab_experience {
-    sql: ${TABLE}.metrics.string.preferences_new_tab_experience ;;
+  dimension: metrics__timing_distribution__immersive_duration__histogram_type {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.histogram_type ;;
     type: string
-    group_label: "Metrics String"
-    group_item_label: "Preferences New Tab Experience"
+    group_label: "Metrics Timing Distribution Immersive Duration"
+    group_item_label: "Histogram Type"
   }
 
-  dimension: metrics__string__search_default_engine {
-    sql: ${TABLE}.metrics.string.search_default_engine ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Search Default Engine"
+  dimension: metrics__timing_distribution__immersive_duration__overflow {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.overflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Immersive Duration"
+    group_item_label: "Overflow"
   }
 
-  dimension: metrics__string__theme_automatic_slider_value {
-    sql: ${TABLE}.metrics.string.theme_automatic_slider_value ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Theme Automatic Slider Value"
+  dimension: metrics__timing_distribution__immersive_duration__range {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.range ;;
+    hidden: yes
   }
 
-  dimension: metrics__string__theme_name {
-    sql: ${TABLE}.metrics.string.theme_name ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Theme Name"
+  dimension: metrics__timing_distribution__immersive_duration__sum {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.sum ;;
+    type: number
+    group_label: "Metrics Timing Distribution Immersive Duration"
+    group_item_label: "Sum"
   }
 
-  dimension: metrics__string__tracking_protection_strength {
-    sql: ${TABLE}.metrics.string.tracking_protection_strength ;;
+  dimension: metrics__timing_distribution__immersive_duration__time_unit {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.time_unit ;;
     type: string
-    group_label: "Metrics String"
-    group_item_label: "Tracking Protection Strength"
+    group_label: "Metrics Timing Distribution Immersive Duration"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timing_distribution__immersive_duration__underflow {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.underflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Immersive Duration"
+    group_item_label: "Underflow"
+  }
+
+  dimension: metrics__timing_distribution__immersive_duration__values {
+    sql: ${TABLE}.metrics.timing_distribution.immersive_duration.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__bucket_count {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.bucket_count ;;
+    type: number
+    group_label: "Metrics Timing Distribution Pages Page Load"
+    group_item_label: "Bucket Count"
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__histogram_type {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.histogram_type ;;
+    type: string
+    group_label: "Metrics Timing Distribution Pages Page Load"
+    group_item_label: "Histogram Type"
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__overflow {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.overflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Pages Page Load"
+    group_item_label: "Overflow"
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__range {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.range ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__sum {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.sum ;;
+    type: number
+    group_label: "Metrics Timing Distribution Pages Page Load"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__time_unit {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.time_unit ;;
+    type: string
+    group_label: "Metrics Timing Distribution Pages Page Load"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__underflow {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.underflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Pages Page Load"
+    group_item_label: "Underflow"
+  }
+
+  dimension: metrics__timing_distribution__pages_page_load__values {
+    sql: ${TABLE}.metrics.timing_distribution.pages_page_load.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__bucket_count {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.bucket_count ;;
+    type: number
+    group_label: "Metrics Timing Distribution Windows Duration"
+    group_item_label: "Bucket Count"
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__histogram_type {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.histogram_type ;;
+    type: string
+    group_label: "Metrics Timing Distribution Windows Duration"
+    group_item_label: "Histogram Type"
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__overflow {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.overflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Windows Duration"
+    group_item_label: "Overflow"
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__range {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.range ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__sum {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.sum ;;
+    type: number
+    group_label: "Metrics Timing Distribution Windows Duration"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__time_unit {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.time_unit ;;
+    type: string
+    group_label: "Metrics Timing Distribution Windows Duration"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__underflow {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.underflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Windows Duration"
+    group_item_label: "Underflow"
+  }
+
+  dimension: metrics__timing_distribution__windows_duration__values {
+    sql: ${TABLE}.metrics.timing_distribution.windows_duration.values ;;
+    hidden: yes
   }
 
   dimension: normalized_app_name {
@@ -909,24 +714,5 @@ view: metrics {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.metrics"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.metrics"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.metrics"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.org_mozilla_vrbrowser.metrics` ;;
 }

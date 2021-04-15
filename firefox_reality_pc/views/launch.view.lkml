@@ -1,4 +1,4 @@
-view: baseline {
+view: launch {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,20 +221,6 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
-  }
-
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
-    type: string
-    group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
-  }
-
   dimension: metrics__jwe {
     sql: ${TABLE}.metrics.jwe ;;
     hidden: yes
@@ -260,35 +246,44 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
-    hidden: yes
-  }
-
   dimension: metrics__labeled_rate {
     sql: ${TABLE}.metrics.labeled_rate ;;
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
+  dimension: metrics__string__distribution_channel_name {
+    sql: ${TABLE}.metrics.string.distribution_channel_name ;;
     type: string
     group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+    group_item_label: "Distribution Channel Name"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__string__distribution_ff_install_from {
+    sql: ${TABLE}.metrics.string.distribution_ff_install_from ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Time Unit"
+    group_label: "Metrics String"
+    group_item_label: "Distribution Ff Install From"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
-    type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Value"
+  dimension: metrics__string__distribution_fxr_channel_name {
+    sql: ${TABLE}.metrics.string.distribution_fxr_channel_name ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Distribution Fxr Channel Name"
+  }
+
+  dimension: metrics__string__distribution_install_from {
+    sql: ${TABLE}.metrics.string.distribution_install_from ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Distribution Install From"
+  }
+
+  dimension: metrics__string__launch_entry_method {
+    sql: ${TABLE}.metrics.string.launch_entry_method ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Launch Entry Method"
   }
 
   dimension: normalized_app_name {
@@ -432,24 +427,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.org_mozilla_firefoxreality.launch` ;;
 }

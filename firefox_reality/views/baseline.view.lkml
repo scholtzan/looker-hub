@@ -270,6 +270,13 @@ view: baseline {
     hidden: yes
   }
 
+  dimension: metrics__string__distribution_channel_name {
+    sql: ${TABLE}.metrics.string.distribution_channel_name ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Distribution Channel Name"
+  }
+
   dimension: metrics__string__glean_baseline_locale {
     sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
     type: string
@@ -432,24 +439,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.org_mozilla_vrbrowser.baseline` ;;
 }

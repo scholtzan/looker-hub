@@ -1,4 +1,4 @@
-view: baseline {
+view: metrics {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,11 +221,81 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
+  dimension: metrics__boolean__fog_failed_idle_registration {
+    sql: ${TABLE}.metrics.boolean.fog_failed_idle_registration ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Fog Failed Idle Registration"
+  }
+
+  dimension: metrics__boolean__glean_core_migration_successful {
+    sql: ${TABLE}.metrics.boolean.glean_core_migration_successful ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Glean Core Migration Successful"
+  }
+
+  dimension: metrics__boolean__glean_error_preinit_tasks_timeout {
+    sql: ${TABLE}.metrics.boolean.glean_error_preinit_tasks_timeout ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Glean Error Preinit Tasks Timeout"
+  }
+
+  dimension: metrics__counter__fog_ipc_replay_failures {
+    sql: ${TABLE}.metrics.counter.fog_ipc_replay_failures ;;
     type: number
     group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+    group_item_label: "Fog Ipc Replay Failures"
+  }
+
+  dimension: metrics__counter__glean_error_io {
+    sql: ${TABLE}.metrics.counter.glean_error_io ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Error Io"
+  }
+
+  dimension: metrics__counter__glean_error_preinit_tasks_overflow {
+    sql: ${TABLE}.metrics.counter.glean_error_preinit_tasks_overflow ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Error Preinit Tasks Overflow"
+  }
+
+  dimension: metrics__counter__glean_upload_deleted_pings_after_quota_hit {
+    sql: ${TABLE}.metrics.counter.glean_upload_deleted_pings_after_quota_hit ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Upload Deleted Pings After Quota Hit"
+  }
+
+  dimension: metrics__counter__glean_upload_pending_pings {
+    sql: ${TABLE}.metrics.counter.glean_upload_pending_pings ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Upload Pending Pings"
+  }
+
+  dimension: metrics__counter__glean_validation_app_forceclosed_count {
+    sql: ${TABLE}.metrics.counter.glean_validation_app_forceclosed_count ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Validation App Forceclosed Count"
+  }
+
+  dimension: metrics__counter__glean_validation_baseline_ping_count {
+    sql: ${TABLE}.metrics.counter.glean_validation_baseline_ping_count ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Validation Baseline Ping Count"
+  }
+
+  dimension: metrics__counter__glean_validation_foreground_count {
+    sql: ${TABLE}.metrics.counter.glean_validation_foreground_count ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Glean Validation Foreground Count"
   }
 
   dimension: metrics__datetime__glean_validation_first_run_hour {
@@ -260,6 +330,11 @@ view: baseline {
     hidden: yes
   }
 
+  dimension: metrics__labeled_counter__glean_upload_ping_upload_failure {
+    sql: ${TABLE}.metrics.labeled_counter.glean_upload_ping_upload_failure ;;
+    hidden: yes
+  }
+
   dimension: metrics__labeled_counter__glean_validation_pings_submitted {
     sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
     hidden: yes
@@ -270,25 +345,125 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+  dimension: metrics__memory_distribution__fog_ipc_buffer_sizes__sum {
+    sql: ${TABLE}.metrics.memory_distribution.fog_ipc_buffer_sizes.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Fog Ipc Buffer Sizes"
+    group_item_label: "Sum"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__memory_distribution__fog_ipc_buffer_sizes__values {
+    sql: ${TABLE}.metrics.memory_distribution.fog_ipc_buffer_sizes.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__memory_distribution__glean_database_size__sum {
+    sql: ${TABLE}.metrics.memory_distribution.glean_database_size.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Glean Database Size"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__memory_distribution__glean_database_size__values {
+    sql: ${TABLE}.metrics.memory_distribution.glean_database_size.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__memory_distribution__glean_upload_discarded_exceeding_pings_size__sum {
+    sql: ${TABLE}.metrics.memory_distribution.glean_upload_discarded_exceeding_pings_size.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Glean Upload Discarded Exceeding Pings Size"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__memory_distribution__glean_upload_discarded_exceeding_pings_size__values {
+    sql: ${TABLE}.metrics.memory_distribution.glean_upload_discarded_exceeding_pings_size.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__memory_distribution__glean_upload_pending_pings_directory_size__sum {
+    sql: ${TABLE}.metrics.memory_distribution.glean_upload_pending_pings_directory_size.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Glean Upload Pending Pings Directory Size"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__memory_distribution__glean_upload_pending_pings_directory_size__values {
+    sql: ${TABLE}.metrics.memory_distribution.glean_upload_pending_pings_directory_size.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__string__ping_reason {
+    sql: ${TABLE}.metrics.string.ping_reason ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics String"
+    group_item_label: "Ping Reason"
+  }
+
+  dimension: metrics__timespan__fog_initialization__time_unit {
+    sql: ${TABLE}.metrics.timespan.fog_initialization.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Fog Initialization"
     group_item_label: "Time Unit"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
+  dimension: metrics__timespan__fog_initialization__value {
+    sql: ${TABLE}.metrics.timespan.fog_initialization.value ;;
     type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics Timespan Fog Initialization"
     group_item_label: "Value"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__bucket_count {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.bucket_count ;;
+    type: number
+    group_label: "Metrics Timing Distribution Fog Ipc Flush Durations"
+    group_item_label: "Bucket Count"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__histogram_type {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.histogram_type ;;
+    type: string
+    group_label: "Metrics Timing Distribution Fog Ipc Flush Durations"
+    group_item_label: "Histogram Type"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__overflow {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.overflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Fog Ipc Flush Durations"
+    group_item_label: "Overflow"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__range {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.range ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__sum {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.sum ;;
+    type: number
+    group_label: "Metrics Timing Distribution Fog Ipc Flush Durations"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__time_unit {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.time_unit ;;
+    type: string
+    group_label: "Metrics Timing Distribution Fog Ipc Flush Durations"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__underflow {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.underflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Fog Ipc Flush Durations"
+    group_item_label: "Underflow"
+  }
+
+  dimension: metrics__timing_distribution__fog_ipc_flush_durations__values {
+    sql: ${TABLE}.metrics.timing_distribution.fog_ipc_flush_durations.values ;;
+    hidden: yes
   }
 
   dimension: normalized_app_name {
@@ -432,24 +607,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.firefox_desktop.metrics` ;;
 }

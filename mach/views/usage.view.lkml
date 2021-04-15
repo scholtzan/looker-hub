@@ -1,4 +1,4 @@
-view: baseline {
+view: usage {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,18 +221,74 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+  dimension: metrics__boolean__mach_success {
+    sql: ${TABLE}.metrics.boolean.mach_success ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mach Success"
   }
 
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
-    type: string
-    group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
+  dimension: metrics__boolean__mozbuild_artifact {
+    sql: ${TABLE}.metrics.boolean.mozbuild_artifact ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Artifact"
+  }
+
+  dimension: metrics__boolean__mozbuild_ccache {
+    sql: ${TABLE}.metrics.boolean.mozbuild_ccache ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Ccache"
+  }
+
+  dimension: metrics__boolean__mozbuild_clobber {
+    sql: ${TABLE}.metrics.boolean.mozbuild_clobber ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Clobber"
+  }
+
+  dimension: metrics__boolean__mozbuild_debug {
+    sql: ${TABLE}.metrics.boolean.mozbuild_debug ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Debug"
+  }
+
+  dimension: metrics__boolean__mozbuild_icecream {
+    sql: ${TABLE}.metrics.boolean.mozbuild_icecream ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Icecream"
+  }
+
+  dimension: metrics__boolean__mozbuild_opt {
+    sql: ${TABLE}.metrics.boolean.mozbuild_opt ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Opt"
+  }
+
+  dimension: metrics__boolean__mozbuild_sccache {
+    sql: ${TABLE}.metrics.boolean.mozbuild_sccache ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozbuild Sccache"
+  }
+
+  dimension: metrics__counter__mach_system_logical_cores {
+    sql: ${TABLE}.metrics.counter.mach_system_logical_cores ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Mach System Logical Cores"
+  }
+
+  dimension: metrics__counter__mach_system_physical_cores {
+    sql: ${TABLE}.metrics.counter.mach_system_physical_cores ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Mach System Physical Cores"
   }
 
   dimension: metrics__jwe {
@@ -260,34 +316,74 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
-    hidden: yes
-  }
-
   dimension: metrics__labeled_rate {
     sql: ${TABLE}.metrics.labeled_rate ;;
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+  dimension: metrics__memory_distribution__mach_system_memory__sum {
+    sql: ${TABLE}.metrics.memory_distribution.mach_system_memory.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Mach System Memory"
+    group_item_label: "Sum"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__memory_distribution__mach_system_memory__values {
+    sql: ${TABLE}.metrics.memory_distribution.mach_system_memory.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__string__mach_command {
+    sql: ${TABLE}.metrics.string.mach_command ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics String"
+    group_item_label: "Mach Command"
+  }
+
+  dimension: metrics__string__mach_system_cpu_brand {
+    sql: ${TABLE}.metrics.string.mach_system_cpu_brand ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mach System Cpu Brand"
+  }
+
+  dimension: metrics__string__mach_system_distro {
+    sql: ${TABLE}.metrics.string.mach_system_distro ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mach System Distro"
+  }
+
+  dimension: metrics__string__mach_system_distro_version {
+    sql: ${TABLE}.metrics.string.mach_system_distro_version ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mach System Distro Version"
+  }
+
+  dimension: metrics__string__mozbuild_compiler {
+    sql: ${TABLE}.metrics.string.mozbuild_compiler ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mozbuild Compiler"
+  }
+
+  dimension: metrics__string_list__mach_argv {
+    sql: ${TABLE}.metrics.string_list.mach_argv ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timespan__mach_duration__time_unit {
+    sql: ${TABLE}.metrics.timespan.mach_duration.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Mach Duration"
     group_item_label: "Time Unit"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
+  dimension: metrics__timespan__mach_duration__value {
+    sql: ${TABLE}.metrics.timespan.mach_duration.value ;;
     type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics Timespan Mach Duration"
     group_item_label: "Value"
   }
 
@@ -432,24 +528,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.mozilla_mach.usage` ;;
 }

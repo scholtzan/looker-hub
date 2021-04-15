@@ -1,4 +1,4 @@
-view: baseline {
+view: startup_timeline {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,18 +221,25 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+  dimension: metrics__boolean__startup_timeline_framework_start_error {
+    sql: ${TABLE}.metrics.boolean.startup_timeline_framework_start_error ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Startup Timeline Framework Start Error"
   }
 
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
-    type: string
-    group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
+  dimension: metrics__boolean__startup_timeline_framework_start_read_error {
+    sql: ${TABLE}.metrics.boolean.startup_timeline_framework_start_read_error ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Startup Timeline Framework Start Read Error"
+  }
+
+  dimension: metrics__counter__startup_timeline_clock_ticks_per_second {
+    sql: ${TABLE}.metrics.counter.startup_timeline_clock_ticks_per_second ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Startup Timeline Clock Ticks Per Second"
   }
 
   dimension: metrics__jwe {
@@ -260,34 +267,57 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
-    hidden: yes
-  }
-
   dimension: metrics__labeled_rate {
     sql: ${TABLE}.metrics.labeled_rate ;;
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+  dimension: metrics__quantity__startup_timeline_clock_ticks_per_second_v2 {
+    sql: ${TABLE}.metrics.quantity.startup_timeline_clock_ticks_per_second_v2 ;;
+    type: number
+    group_label: "Metrics Quantity"
+    group_item_label: "Startup Timeline Clock Ticks Per Second V2"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__timespan__startup_timeline_framework_primary__time_unit {
+    sql: ${TABLE}.metrics.timespan.startup_timeline_framework_primary.time_unit ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics Timespan Startup Timeline Framework Primary"
     group_item_label: "Time Unit"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
+  dimension: metrics__timespan__startup_timeline_framework_primary__value {
+    sql: ${TABLE}.metrics.timespan.startup_timeline_framework_primary.value ;;
     type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics Timespan Startup Timeline Framework Primary"
+    group_item_label: "Value"
+  }
+
+  dimension: metrics__timespan__startup_timeline_framework_secondary__time_unit {
+    sql: ${TABLE}.metrics.timespan.startup_timeline_framework_secondary.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Startup Timeline Framework Secondary"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timespan__startup_timeline_framework_secondary__value {
+    sql: ${TABLE}.metrics.timespan.startup_timeline_framework_secondary.value ;;
+    type: number
+    group_label: "Metrics Timespan Startup Timeline Framework Secondary"
+    group_item_label: "Value"
+  }
+
+  dimension: metrics__timespan__startup_timeline_framework_start__time_unit {
+    sql: ${TABLE}.metrics.timespan.startup_timeline_framework_start.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Startup Timeline Framework Start"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timespan__startup_timeline_framework_start__value {
+    sql: ${TABLE}.metrics.timespan.startup_timeline_framework_start.value ;;
+    type: number
+    group_label: "Metrics Timespan Startup Timeline Framework Start"
     group_item_label: "Value"
   }
 
@@ -437,17 +467,17 @@ view: baseline {
 
     allowed_value: {
       label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
+      value: "mozdata.org_mozilla_firefox.startup_timeline"
     }
 
     allowed_value: {
       label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
+      value: "mozdata.org_mozilla_firefox_beta.startup_timeline"
     }
 
     allowed_value: {
       label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
+      value: "mozdata.org_mozilla_fenix.startup_timeline"
     }
   }
 

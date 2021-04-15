@@ -1,4 +1,4 @@
-view: baseline {
+view: bookmarks_sync {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,22 +221,44 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
+  dimension: metrics__counter__bookmarks_sync_outgoing_batches {
+    sql: ${TABLE}.metrics.counter.bookmarks_sync_outgoing_batches ;;
     type: number
     group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+    group_item_label: "Bookmarks Sync Outgoing Batches"
   }
 
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
+  dimension: metrics__datetime__bookmarks_sync_finished_at {
+    sql: ${TABLE}.metrics.datetime.bookmarks_sync_finished_at ;;
     type: string
     group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
+    group_item_label: "Bookmarks Sync Finished At"
+  }
+
+  dimension: metrics__datetime__bookmarks_sync_started_at {
+    sql: ${TABLE}.metrics.datetime.bookmarks_sync_started_at ;;
+    type: string
+    group_label: "Metrics Datetime"
+    group_item_label: "Bookmarks Sync Started At"
   }
 
   dimension: metrics__jwe {
     sql: ${TABLE}.metrics.jwe ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__bookmarks_sync_incoming {
+    sql: ${TABLE}.metrics.labeled_counter.bookmarks_sync_incoming ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__bookmarks_sync_outgoing {
+    sql: ${TABLE}.metrics.labeled_counter.bookmarks_sync_outgoing ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__bookmarks_sync_remote_tree_problems {
+    sql: ${TABLE}.metrics.labeled_counter.bookmarks_sync_remote_tree_problems ;;
     hidden: yes
   }
 
@@ -260,35 +282,28 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
-    hidden: yes
-  }
-
   dimension: metrics__labeled_rate {
     sql: ${TABLE}.metrics.labeled_rate ;;
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
+  dimension: metrics__labeled_string__bookmarks_sync_failure_reason {
+    sql: ${TABLE}.metrics.labeled_string.bookmarks_sync_failure_reason ;;
+    hidden: yes
+  }
+
+  dimension: metrics__string__bookmarks_sync_uid {
+    sql: ${TABLE}.metrics.string.bookmarks_sync_uid ;;
     type: string
     group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+    group_item_label: "Bookmarks Sync Uid"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__uuid__sync_sync_uuid {
+    sql: ${TABLE}.metrics.uuid.sync_sync_uuid ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Time Unit"
-  }
-
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
-    type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Value"
+    group_label: "Metrics Uuid"
+    group_item_label: "Sync Sync Uuid"
   }
 
   dimension: normalized_app_name {
@@ -432,24 +447,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.org_mozilla_vrbrowser.bookmarks_sync` ;;
 }

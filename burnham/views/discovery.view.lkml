@@ -1,4 +1,4 @@
-view: baseline {
+view: discovery {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,20 +221,6 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
-  }
-
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
-    type: string
-    group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
-  }
-
   dimension: metrics__jwe {
     sql: ${TABLE}.metrics.jwe ;;
     hidden: yes
@@ -260,8 +246,13 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
+  dimension: metrics__labeled_counter__technology_space_travel {
+    sql: ${TABLE}.metrics.labeled_counter.technology_space_travel ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__test_burnham_space_travel {
+    sql: ${TABLE}.metrics.labeled_counter.test_burnham_space_travel ;;
     hidden: yes
   }
 
@@ -270,25 +261,67 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
+  dimension: metrics__string__mission_identifier {
+    sql: ${TABLE}.metrics.string.mission_identifier ;;
     type: string
     group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+    group_item_label: "Mission Identifier"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__string__mission_status {
+    sql: ${TABLE}.metrics.string.mission_status ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Time Unit"
+    group_label: "Metrics String"
+    group_item_label: "Mission Status"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
-    type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Value"
+  dimension: metrics__string__test_burnham_mission {
+    sql: ${TABLE}.metrics.string.test_burnham_mission ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Test Burnham Mission"
+  }
+
+  dimension: metrics__string__test_burnham_position {
+    sql: ${TABLE}.metrics.string.test_burnham_position ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Test Burnham Position"
+  }
+
+  dimension: metrics__string__test_burnham_status {
+    sql: ${TABLE}.metrics.string.test_burnham_status ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Test Burnham Status"
+  }
+
+  dimension: metrics__string__test_burnham_test_name {
+    sql: ${TABLE}.metrics.string.test_burnham_test_name ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Test Burnham Test Name"
+  }
+
+  dimension: metrics__string__test_name {
+    sql: ${TABLE}.metrics.string.test_name ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Test Name"
+  }
+
+  dimension: metrics__uuid__test_burnham_test_run {
+    sql: ${TABLE}.metrics.uuid.test_burnham_test_run ;;
+    type: string
+    group_label: "Metrics Uuid"
+    group_item_label: "Test Burnham Test Run"
+  }
+
+  dimension: metrics__uuid__test_run {
+    sql: ${TABLE}.metrics.uuid.test_run ;;
+    type: string
+    group_label: "Metrics Uuid"
+    group_item_label: "Test Run"
   }
 
   dimension: normalized_app_name {
@@ -432,24 +465,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.burnham.discovery` ;;
 }

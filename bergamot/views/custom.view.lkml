@@ -1,4 +1,4 @@
-view: baseline {
+view: custom {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,47 +221,57 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
+  dimension: metrics__counter__errors_marian {
+    sql: ${TABLE}.metrics.counter.errors_marian ;;
     type: number
     group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+    group_item_label: "Errors Marian"
   }
 
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
-    type: string
-    group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
+  dimension: metrics__counter__errors_memory {
+    sql: ${TABLE}.metrics.counter.errors_memory ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Errors Memory"
+  }
+
+  dimension: metrics__counter__errors_model_download {
+    sql: ${TABLE}.metrics.counter.errors_model_download ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Errors Model Download"
+  }
+
+  dimension: metrics__counter__errors_translation {
+    sql: ${TABLE}.metrics.counter.errors_translation ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Errors Translation"
+  }
+
+  dimension: metrics__counter__service_lang_mismatch {
+    sql: ${TABLE}.metrics.counter.service_lang_mismatch ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Service Lang Mismatch"
+  }
+
+  dimension: metrics__counter__service_not_suppported {
+    sql: ${TABLE}.metrics.counter.service_not_suppported ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Service Not Suppported"
+  }
+
+  dimension: metrics__counter__test_counter_test {
+    sql: ${TABLE}.metrics.counter.test_counter_test ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Test Counter Test"
   }
 
   dimension: metrics__jwe {
     sql: ${TABLE}.metrics.jwe ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__glean_error_invalid_label {
-    sql: ${TABLE}.metrics.labeled_counter.glean_error_invalid_label ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__glean_error_invalid_overflow {
-    sql: ${TABLE}.metrics.labeled_counter.glean_error_invalid_overflow ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__glean_error_invalid_state {
-    sql: ${TABLE}.metrics.labeled_counter.glean_error_invalid_state ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__glean_error_invalid_value {
-    sql: ${TABLE}.metrics.labeled_counter.glean_error_invalid_value ;;
-    hidden: yes
-  }
-
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
     hidden: yes
   }
 
@@ -270,25 +280,60 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
+  dimension: metrics__string__metadata_from_lang {
+    sql: ${TABLE}.metrics.string.metadata_from_lang ;;
     type: string
     group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+    group_item_label: "Metadata From Lang"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__string__metadata_to_lang {
+    sql: ${TABLE}.metrics.string.metadata_to_lang ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Time Unit"
+    group_label: "Metrics String"
+    group_item_label: "Metadata To Lang"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
-    type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
-    group_item_label: "Value"
+  dimension: metrics__string__performance_model_download_time {
+    sql: ${TABLE}.metrics.string.performance_model_download_time ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Performance Model Download Time"
+  }
+
+  dimension: metrics__string__performance_model_load_time {
+    sql: ${TABLE}.metrics.string.performance_model_load_time ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Performance Model Load Time"
+  }
+
+  dimension: metrics__string__performance_translation_quality {
+    sql: ${TABLE}.metrics.string.performance_translation_quality ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Performance Translation Quality"
+  }
+
+  dimension: metrics__string__performance_translation_time {
+    sql: ${TABLE}.metrics.string.performance_translation_time ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Performance Translation Time"
+  }
+
+  dimension: metrics__string__performance_words_per_second {
+    sql: ${TABLE}.metrics.string.performance_words_per_second ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Performance Words Per Second"
+  }
+
+  dimension: metrics__string__test_string_test {
+    sql: ${TABLE}.metrics.string.test_string_test ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Test String Test"
   }
 
   dimension: normalized_app_name {
@@ -432,24 +477,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.org_mozilla_bergamot.custom` ;;
 }

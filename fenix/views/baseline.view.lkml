@@ -221,6 +221,13 @@ view: baseline {
     group_item_label: "Version"
   }
 
+  dimension: metrics__counter__events_total_uri_count {
+    sql: ${TABLE}.metrics.counter.events_total_uri_count ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Events Total Uri Count"
+  }
+
   dimension: metrics__counter__glean_validation_metrics_ping_count {
     sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
     type: number
@@ -237,6 +244,21 @@ view: baseline {
 
   dimension: metrics__jwe {
     sql: ${TABLE}.metrics.jwe ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__browser_search_ad_clicks {
+    sql: ${TABLE}.metrics.labeled_counter.browser_search_ad_clicks ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__browser_search_in_content {
+    sql: ${TABLE}.metrics.labeled_counter.browser_search_in_content ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__browser_search_with_ads {
+    sql: ${TABLE}.metrics.labeled_counter.browser_search_with_ads ;;
     hidden: yes
   }
 
@@ -262,6 +284,11 @@ view: baseline {
 
   dimension: metrics__labeled_counter__glean_validation_pings_submitted {
     sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
+    hidden: yes
+  }
+
+  dimension: metrics__labeled_counter__metrics_search_count {
+    sql: ${TABLE}.metrics.labeled_counter.metrics_search_count ;;
     hidden: yes
   }
 
@@ -437,17 +464,17 @@ view: baseline {
 
     allowed_value: {
       label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
+      value: "mozdata.org_mozilla_firefox.baseline"
     }
 
     allowed_value: {
       label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
+      value: "mozdata.org_mozilla_firefox_beta.baseline"
     }
 
     allowed_value: {
       label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
+      value: "mozdata.org_mozilla_fenix.baseline"
     }
   }
 

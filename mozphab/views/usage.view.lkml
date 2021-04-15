@@ -1,4 +1,4 @@
-view: baseline {
+view: usage {
   dimension: additional_properties {
     sql: ${TABLE}.additional_properties ;;
     type: string
@@ -221,18 +221,32 @@ view: baseline {
     group_item_label: "Version"
   }
 
-  dimension: metrics__counter__glean_validation_metrics_ping_count {
-    sql: ${TABLE}.metrics.counter.glean_validation_metrics_ping_count ;;
-    type: number
-    group_label: "Metrics Counter"
-    group_item_label: "Glean Validation Metrics Ping Count"
+  dimension: metrics__boolean__mozphab_usage_arcanist {
+    sql: ${TABLE}.metrics.boolean.mozphab_usage_arcanist ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozphab Usage Arcanist"
   }
 
-  dimension: metrics__datetime__glean_validation_first_run_hour {
-    sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
-    type: string
-    group_label: "Metrics Datetime"
-    group_item_label: "Glean Validation First Run Hour"
+  dimension: metrics__boolean__mozphab_usage_override_switch {
+    sql: ${TABLE}.metrics.boolean.mozphab_usage_override_switch ;;
+    type: yesno
+    group_label: "Metrics Boolean"
+    group_item_label: "Mozphab Usage Override Switch"
+  }
+
+  dimension: metrics__counter__mozphab_submission_commits_count {
+    sql: ${TABLE}.metrics.counter.mozphab_submission_commits_count ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Mozphab Submission Commits Count"
+  }
+
+  dimension: metrics__counter__mozphab_submission_files_count {
+    sql: ${TABLE}.metrics.counter.mozphab_submission_files_count ;;
+    type: number
+    group_label: "Metrics Counter"
+    group_item_label: "Mozphab Submission Files Count"
   }
 
   dimension: metrics__jwe {
@@ -260,35 +274,112 @@ view: baseline {
     hidden: yes
   }
 
-  dimension: metrics__labeled_counter__glean_validation_pings_submitted {
-    sql: ${TABLE}.metrics.labeled_counter.glean_validation_pings_submitted ;;
-    hidden: yes
-  }
-
   dimension: metrics__labeled_rate {
     sql: ${TABLE}.metrics.labeled_rate ;;
     hidden: yes
   }
 
-  dimension: metrics__string__glean_baseline_locale {
-    sql: ${TABLE}.metrics.string.glean_baseline_locale ;;
-    type: string
-    group_label: "Metrics String"
-    group_item_label: "Glean Baseline Locale"
+  dimension: metrics__memory_distribution__mozphab_submission_files_size__sum {
+    sql: ${TABLE}.metrics.memory_distribution.mozphab_submission_files_size.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Mozphab Submission Files Size"
+    group_item_label: "Sum"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__time_unit {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.time_unit ;;
+  dimension: metrics__memory_distribution__mozphab_submission_files_size__values {
+    sql: ${TABLE}.metrics.memory_distribution.mozphab_submission_files_size.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__string__mozphab_environment_distribution_version {
+    sql: ${TABLE}.metrics.string.mozphab_environment_distribution_version ;;
     type: string
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics String"
+    group_item_label: "Mozphab Environment Distribution Version"
+  }
+
+  dimension: metrics__string__mozphab_environment_python_version {
+    sql: ${TABLE}.metrics.string.mozphab_environment_python_version ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mozphab Environment Python Version"
+  }
+
+  dimension: metrics__string__mozphab_environment_vcs_name {
+    sql: ${TABLE}.metrics.string.mozphab_environment_vcs_name ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mozphab Environment Vcs Name"
+  }
+
+  dimension: metrics__string__mozphab_environment_vcs_version {
+    sql: ${TABLE}.metrics.string.mozphab_environment_vcs_version ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mozphab Environment Vcs Version"
+  }
+
+  dimension: metrics__string__mozphab_usage_command {
+    sql: ${TABLE}.metrics.string.mozphab_usage_command ;;
+    type: string
+    group_label: "Metrics String"
+    group_item_label: "Mozphab Usage Command"
+  }
+
+  dimension: metrics__timespan__mozphab_submission_preparation_time__time_unit {
+    sql: ${TABLE}.metrics.timespan.mozphab_submission_preparation_time.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Mozphab Submission Preparation Time"
     group_item_label: "Time Unit"
   }
 
-  dimension: metrics__timespan__glean_baseline_duration__value {
-    sql: ${TABLE}.metrics.timespan.glean_baseline_duration.value ;;
+  dimension: metrics__timespan__mozphab_submission_preparation_time__value {
+    sql: ${TABLE}.metrics.timespan.mozphab_submission_preparation_time.value ;;
     type: number
-    group_label: "Metrics Timespan Glean Baseline Duration"
+    group_label: "Metrics Timespan Mozphab Submission Preparation Time"
     group_item_label: "Value"
+  }
+
+  dimension: metrics__timespan__mozphab_submission_process_time__time_unit {
+    sql: ${TABLE}.metrics.timespan.mozphab_submission_process_time.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Mozphab Submission Process Time"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timespan__mozphab_submission_process_time__value {
+    sql: ${TABLE}.metrics.timespan.mozphab_submission_process_time.value ;;
+    type: number
+    group_label: "Metrics Timespan Mozphab Submission Process Time"
+    group_item_label: "Value"
+  }
+
+  dimension: metrics__timespan__mozphab_usage_command_time__time_unit {
+    sql: ${TABLE}.metrics.timespan.mozphab_usage_command_time.time_unit ;;
+    type: string
+    group_label: "Metrics Timespan Mozphab Usage Command Time"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timespan__mozphab_usage_command_time__value {
+    sql: ${TABLE}.metrics.timespan.mozphab_usage_command_time.value ;;
+    type: number
+    group_label: "Metrics Timespan Mozphab Usage Command Time"
+    group_item_label: "Value"
+  }
+
+  dimension: metrics__uuid__mozphab_user_id {
+    sql: ${TABLE}.metrics.uuid.mozphab_user_id ;;
+    type: string
+    group_label: "Metrics Uuid"
+    group_item_label: "Mozphab User Id"
+  }
+
+  dimension: metrics__uuid__mozphab_user_installation {
+    sql: ${TABLE}.metrics.uuid.mozphab_user_installation ;;
+    type: string
+    group_label: "Metrics Uuid"
+    group_item_label: "Mozphab User Installation"
   }
 
   dimension: normalized_app_name {
@@ -432,24 +523,5 @@ view: baseline {
     type: count
   }
 
-  parameter: channel {
-    type: unquoted
-
-    allowed_value: {
-      label: "Release"
-      value: "mozdata.org_mozilla_ios_firefox.baseline"
-    }
-
-    allowed_value: {
-      label: "Beta"
-      value: "mozdata.org_mozilla_ios_firefoxbeta.baseline"
-    }
-
-    allowed_value: {
-      label: "Nightly"
-      value: "mozdata.org_mozilla_ios_fennec.baseline"
-    }
-  }
-
-  sql_table_name: `{% parameter channel %}` ;;
+  sql_table_name: `mozdata.mozphab.usage` ;;
 }
